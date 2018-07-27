@@ -23,13 +23,17 @@ class Analyser(View):
             'user_id': data['session']['user_id'],
         }
 
-        if data['request']['command'] == '':
+        if data['request']['command'] in ('', 'test'):
+            print('1 way')
+
             answer['response'] = {
                 'text': 'Если вы припарковались, скажите мне место парковки.',
                 'tts': 'Если вы припарковались, скажите мне место парковки.'
             }
 
         else:
+            print('2 way')
+
             parkmatte = ParkMatte()
             name, data = parkmatte.parse(data['request']['command'])
 
@@ -40,6 +44,7 @@ class Analyser(View):
                     'text': parkmatte.answer(name)
                 }
 
+        print(answer.keys())
         answer['response']['end_session'] = False
 
         print('answer', answer)
