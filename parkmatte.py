@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import re
+import random
 
 
 class ParkMatte:
@@ -18,3 +19,6 @@ class ParkMatte:
 
                 if match:
                     return key, match
+
+    def answer(self, command):
+        return random.choice(self.answer_json[command])
