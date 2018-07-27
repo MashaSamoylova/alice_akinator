@@ -24,16 +24,12 @@ class Analyser(View):
         }
 
         if data['request']['command'] in ('', 'test'):
-            print('1 way')
-
             answer['response'] = {
                 'text': 'Если вы припарковались, скажите мне место парковки.',
                 'tts': 'Если вы припарковались, скажите мне место парковки.'
             }
 
         else:
-            print('2 way')
-
             parkmatte = ParkMatte()
 
             name, data = parkmatte.parse(data['request']['command'])
@@ -44,9 +40,54 @@ class Analyser(View):
                     'tts': 'Что, простите?'
                 }
 
-            if name == 'get_time':
+            elif name == 'start_parking':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'get_place':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'get_cost':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'get_free_hours':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'where_car':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'where_car':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'free_hours_left':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'how_much_pay':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'left_parking':
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
+
+            elif name == 'get_time':
                 d = data.groupdict()
-                calc_start_time(int(d['digits']), 'hours' if (d['units'] == 'часов') else 'minutes')
+                t = calc_start_time(int(d['digits']), 'hours' if (d['units'] == 'часов') else 'minutes')
                 answer['response'] = {
                     'text': parkmatte.answer(name)
                 }
