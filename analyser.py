@@ -4,6 +4,8 @@ from typing import Any, Dict
 
 from aiohttp.web import View, json_response, Response
 
+from alice_akinator.parkmatte import ParkMatte
+
 PRE_DATA = {'version': '1.0'}
 
 
@@ -20,11 +22,19 @@ class Analyser(View):
             'user_id': data['session']['user_id'],
         }
 
-        answer['response'] = {
-            "text": "Здравствуйте! Это мы, хороводоведы.",
-            "tts": "Здравствуйте! Это мы, хоров+одо в+еды.",
-            'end_session': False,
-        }
+        if data['request']['command'] == '':
+            answer['response'] = {
+                'text': 'Если вы припарковались, скажите мне место парковки.',
+                'tts': 'Если вы припарковались, скажите мне место парковки.'
+            }
+
+        else:
+            parkmatte = ParkMatte()
+            name, data = parkmatte.parse(data['request']['command'])
+
+
+
+        answer['response']['end_session'] = False
 
         print('answer', answer)
         return json_response(answer)
