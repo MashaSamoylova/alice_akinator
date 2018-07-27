@@ -35,7 +35,14 @@ class Analyser(View):
             print('2 way')
 
             parkmatte = ParkMatte()
+
             name, data = parkmatte.parse(data['request']['command'])
+
+            if name == 'unknown':
+                answer['response'] = {
+                    'text': 'Что, простите?',
+                    'tts': 'Что, простите?'
+                }
 
             if name == 'get_time':
                 d = data.groupdict()

@@ -17,8 +17,11 @@ class ParkMatte:
             for command in commands:
                 match = re.match(command, text)
 
-                if match:
+                if match is not None:
+                    print('ppp:', key, match)
                     return key, match
+
+        return 'unknown', None
 
     def answer(self, command):
         return random.choice(self.answer_json[command])
