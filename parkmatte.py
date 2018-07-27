@@ -9,7 +9,7 @@ class ParkMatte:
         with open('commands.json', 'r') as fp:
             self.commands_json = json.load(fp)
 
-        with open('answer.json', 'r') as fp:
+        with open('answers.json', 'r') as fp:
             self.answer_json = json.load(fp)
 
     def parse(self, text: str):
