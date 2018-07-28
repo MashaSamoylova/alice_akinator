@@ -4,7 +4,8 @@ from typing import Any, Dict
 
 from aiohttp.web import View, json_response, Response
 
-from alice_akinator.parkmatte import ParkMatte
+from parkmatte import ParkMatte
+from calc_time import calc_start_time
 
 PRE_DATA = {'version': '1.0'}
 
@@ -32,7 +33,12 @@ class Analyser(View):
             parkmatte = ParkMatte()
             name, data = parkmatte.parse(data['request']['command'])
 
-
+            if name == 'get_time':
+                d = data.groupdict()
+                calc_start_time(int(d['digits']), 'hours' if (d['units'] == 'часов') else 'minutes')
+                answer['response'] = {
+                    'text': parkmatte.answer(name)
+                }
 
         answer['response']['end_session'] = False
 
