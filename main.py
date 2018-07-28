@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from aiohttp.web import Application, run_app, post, view
-
 from analyser import Analyser
+from db_manager import *
+
 
 HANDLERS = [
     view('/', Analyser),
@@ -16,4 +17,5 @@ def main():
 
 
 if __name__ == '__main__':
+    prepare_db()
     main()
