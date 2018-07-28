@@ -110,11 +110,11 @@ def select_all_data(user_id, session_id):
 
     data = c.fetchall()[]
 
-    return json({
+    return {
         'place': data[0],
         'start_time': data[1],
         'free_period': data[2],
         'payment_per_hour': data[3],
-        })
+        }
 
 
