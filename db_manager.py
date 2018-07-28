@@ -56,7 +56,7 @@ def update_place(place, id_s):
     UPDATE PARKING
     SET place = ?
     WHERE id=?
-    ''', (place, _id))
+    ''', (place, id_s))
 
     db.commit()
     db.close()
