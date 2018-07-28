@@ -100,7 +100,7 @@ class Analyser(View):
                     d = 'Пока что бесплатно'
 
                 answer['response'] = {
-                    'text': parkmatte.answer(name).format(data=d)
+                    'text': d
                 }
 
             elif name == 'left_parking':
