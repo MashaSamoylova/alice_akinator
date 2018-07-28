@@ -54,7 +54,8 @@ class Analyser(View):
                 }
 
             elif name == 'get_place':
-                update_place(data.groupdict()['place'], db_data['id'])
+                if data is not None:
+                    update_place(data.groupdict()['place'], db_data['id'])
 
                 answer['response'] = {
                     'text': parkmatte.answer(name)
