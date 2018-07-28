@@ -13,7 +13,7 @@ HANDLERS = [
 def main():
     application = Application()
     application.router.add_routes(HANDLERS)
-    run_app(application, host='127.0.0.1', port=1496, access_log=None)
+    run_app(application, host='127.0.0.1', port=5000, access_log=None)
 
 
 if __name__ == '__main__':
