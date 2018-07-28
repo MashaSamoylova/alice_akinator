@@ -80,13 +80,17 @@ class Analyser(View):
                 }
 
             elif name == 'free_hours_left':
+                t = calc_free_time(user_id, session_id)
+
                 answer['response'] = {
-                    'text': parkmatte.answer(name).format(data=db_data['start_time'])
+                    'text': parkmatte.answer(name).format(data=t)
                 }
 
             elif name == 'how_much_pay':
+                d = calc_payment(user_id, session_id)
+
                 answer['response'] = {
-                    'text': parkmatte.answer(name).format(data=db_data['payment_per_hour'])
+                    'text': parkmatte.answer(name).format(data=d)
                 }
 
             elif name == 'left_parking':
