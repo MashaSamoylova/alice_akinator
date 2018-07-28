@@ -5,6 +5,7 @@ from db_manager import *
 def calc_start_time(time_s: int, unit):
     now = int(time.time())
     if unit == "minutes":
+        print(now, time_s*60)
         return now - time_s*60
     elif unit == "hours":
         return now - time_s*3600
