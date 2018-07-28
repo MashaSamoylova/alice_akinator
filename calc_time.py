@@ -22,6 +22,6 @@ def calc_payment(user_id, session_id):
     start_time = data['start_time']
     free_time = data['free_period']
     payment_per_hour = data['payment_per_hour']
-    return abs((((int(time.time()) - start_time)//60 - free_time)/60)*payment_per_hour)
+    return int((((int(time.time()) - start_time)//60 - free_time)/60)*payment_per_hour)
 
 
