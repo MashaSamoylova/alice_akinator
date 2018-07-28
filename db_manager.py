@@ -1,4 +1,5 @@
 import sqlite3
+import json
 
 DB_NAIM = "data.db"
 
@@ -98,3 +99,22 @@ def update_payment_per_hour(user_id, session_id, payment_per_hour):
     db.commit()
     db.close()
     return 0
+
+def select_all_data(user_id, session_id):
+    db = get_db()
+    c = db.cursor()
+    c.execute('''
+    SELECT place, start_time, free_period, payment_per_hour from PARKING
+    WHERE session_id=? AND user_id=?;
+    ''', (session_id, user_id))
+
+    data = c.fetchall()[]
+
+    return json({
+        'place': data[0],
+        'start_time': data[1],
+        'free_period': data[2],
+        'payment_per_hour': data[3],
+        })
+
+
