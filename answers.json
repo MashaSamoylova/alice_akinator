@@ -17,5 +17,14 @@
   ],
   "left_parking": [
     "Хорошего пути."
+  ],
+  "where_car": [
+    "{data}."  
+  ],
+  "free_hours_left": [
+    "{data}."  
+  ],
+  "how_much_pay": [
+    "{data} рублей." 
   ]
 }
