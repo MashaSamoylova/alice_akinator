@@ -22,7 +22,7 @@
     "{data}."  
   ],
   "free_hours_left": [
-    "{data}."  
+    "{data} минут."  
   ],
   "how_much_pay": [
     "{data} рублей." 
