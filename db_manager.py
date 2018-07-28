@@ -16,7 +16,7 @@ def prepare_db():
             user_id TEXT not null ,
             session_id TEXT not null,
             place TEXT,
-            start_time TEXT,
+            start_time INTEGER,
             free_period INTEGER,
             payment_per_hour INTEGER,
             stage_id TEXT,
