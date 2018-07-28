@@ -104,7 +104,7 @@ def update_close_status(id_s):
     UPDATE PARKING
     SET closed = 1
     WHERE id=?;
-    ''', (id_s))
+    ''', (id_s,))
     db.commit()
     db.close()
 
