@@ -121,12 +121,12 @@ def select_all_data(user_id, session_id):
     return {
         'id': data[0],
         'user_id': data[1],
-        'session_id': data[2]
+        'session_id': data[2],
         'place': data[3],
         'start_time': data[4],
         'free_period': data[5],
         'payment_per_hour': data[6],
         'stage_id': data[7],
-        'closed': data[8]
+        'closed': data[8],
         }
 
