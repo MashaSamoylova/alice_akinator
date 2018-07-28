@@ -61,7 +61,7 @@ class Analyser(View):
                 }
 
             elif name == 'get_cost':
-                update_payment_per_hour(data.groupdict()['cost'], db_data['id'])
+                update_payment_per_hour(data.groupdict()['place'], db_data['id'])
 
                 answer['response'] = {
                     'text': parkmatte.answer(name)
