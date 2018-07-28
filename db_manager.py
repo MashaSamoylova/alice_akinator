@@ -116,9 +116,10 @@ def select_all_data(user_id, session_id):
     WHERE  id = (SELECT MAX(id) FROM PARKING WHERE session_id=? AND user_id=? and closed=0);
     ''', (session_id, user_id))
 
-    data = c.fetchall()[0]
-
-    if len(data) == 0:
+    data = c.fetchall()
+    if data:
+        data = data[0]
+    else:
         return None
 
     return {
