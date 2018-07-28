@@ -60,7 +60,7 @@ def update_place(user_id, session_id, place):
     db.close()
     return 0
 
-def update_start_time(user_id, session_id, start_time)
+def update_start_time(user_id, session_id, start_time):
     db = get_db()
     c = db.cursor()
     c.execute('''
