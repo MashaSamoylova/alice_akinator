@@ -97,14 +97,14 @@ def update_payment_per_hour(payment_per_hour, id_s):
     db.commit()
     db.close()
 
-def update_close_status(closed_status, id_s):
+def update_close_status(id_s):
     db = get_db()
     c = db.cursor()
     c.execute('''
     UPDATE PARKING
     SET closed = 1
     WHERE id=?;
-    ''', (closed_status, id_s))
+    ''', (id_s))
     db.commit()
     db.close()
 
