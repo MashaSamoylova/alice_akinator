@@ -118,6 +118,9 @@ def select_all_data(user_id, session_id):
 
     data = c.fetchall()[0]
 
+    if len(data) == 0:
+        return None
+
     return {
         'id': data[0],
         'user_id': data[1],
