@@ -11,7 +11,7 @@ def prepare_db():
     c = db.cursor()
     c.execute(
             '''
-            create table PARKING (
+            create table if not exists PARKING (
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
             user_id TEXT not null ,
             session_id TEXT not null,
