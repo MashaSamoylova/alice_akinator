@@ -82,12 +82,22 @@ class Analyser(View):
             elif name == 'free_hours_left':
                 t = calc_free_time(user_id, session_id)
 
+                if t > 0:
+                    t = parkmatte.answer(name).format(data=t)
+                else:
+                    t = 'Увы, время вышло'
+
                 answer['response'] = {
-                    'text': parkmatte.answer(name).format(data=t)
+                    'text': t
                 }
 
             elif name == 'how_much_pay':
                 d = calc_payment(user_id, session_id)
+
+                if d > 0:
+                    d = parkmatte.answer(name).format(data=d)
+                else:
+                    d = 'Пока что бесплатно'
 
                 answer['response'] = {
                     'text': parkmatte.answer(name).format(data=d)
@@ -103,6 +113,9 @@ class Analyser(View):
             elif name == 'get_time':
                 d = data.groupdict()
                 t = calc_start_time(int(d['digits']), 'hours' if (d['units'] == 'часов') else 'minutes')
+
+                update_start_time(t, db_data['id'])
+
                 answer['response'] = {
                     'text': parkmatte.answer(name)
                 }
