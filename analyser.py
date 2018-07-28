@@ -5,7 +5,7 @@ from typing import Any, Dict
 from aiohttp.web import View, json_response, Response
 
 from parkmatte import ParkMatte
-from calc_time import calc_start_time
+from calc_time import calc_start_time, calc_free_time, calc_payment
 from db_manager import *
 
 PRE_DATA = {'version': '1.0'}
