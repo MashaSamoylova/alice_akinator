@@ -68,7 +68,7 @@ class Analyser(View):
                 }
 
             elif name == 'get_free_hours':
-                update_free_period(data.groupdict()['free_hours'], db_data['id'])
+                update_free_period(int(data.groupdict()['free_hours']) * 60, db_data['id'])
 
                 answer['response'] = {
                     'text': parkmatte.answer(name)
@@ -100,7 +100,7 @@ class Analyser(View):
                     d = 'Пока что бесплатно'
 
                 answer['response'] = {
-                    'text': parkmatte.answer(name).format(data=d)
+                    'text': d
                 }
 
             elif name == 'left_parking':
