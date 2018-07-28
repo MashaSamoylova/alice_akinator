@@ -18,6 +18,7 @@ class ParkMatte:
                 match = re.match(command, text)
 
                 if match is not None:
+                    print('MATCHED:', key)
                     return key, match
 
                 else:
