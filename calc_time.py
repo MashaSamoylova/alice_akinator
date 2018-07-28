@@ -2,12 +2,12 @@ import datetime
 import time
 from db_manager import *
 
-def calc_start_time(time: int, unit):
+def calc_start_time(time_s: int, unit):
     now = int(time.time())
     if unit == "minutes":
-        return now - unit*60
+        return now - time_s*60
     elif unit == "hours":
-        return now - unit*3600
+        return now - time_s*3600
 
 def calc_free_time(user_id, session_id):
     data = select_all_data(user_id, session_id)
