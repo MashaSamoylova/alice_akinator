@@ -108,7 +108,7 @@ def select_all_data(user_id, session_id):
     WHERE session_id=? AND user_id=?;
     ''', (session_id, user_id))
 
-    data = c.fetchall()[]
+    data = c.fetchall()[0]
 
     return {
         'place': data[0],
