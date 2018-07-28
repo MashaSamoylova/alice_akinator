@@ -13,6 +13,7 @@ def calc_free_time(user_id, session_id):
     data = select_all_data(user_id, session_id)
     start_time = data['start_time']
     free_time = data['free_period']
+    print(free_time - (int(time.time()) - start_time)//60)
     return free_time - (int(time.time()) - start_time)//60
     
 def calc_payment(user_id, session_id):
